@@ -6,10 +6,10 @@ def scraper
     unparsed_page = URI.open(url).read
     parsed_page = Nokogiri::HTML(unparsed_page)
 
-    name = parsed_page.css('a.cmc-table__column-name--name.cmc-link').find_all
+    name = parsed_page.css('a.cmc-table__column-name--name.cmc-link')
     name_array = name.collect(&:text) 
 
-    price = parsed_page.css('div.cLgOOr').find_all
+    price = parsed_page.css('div.cLgOOr')
     price_array = price.collect(&:text) 
 
     puts " "
